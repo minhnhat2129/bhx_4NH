@@ -6,7 +6,7 @@ st.set_page_config(page_title="📈 Tăng trưởng 4NH - BHX", layout="wide")
 st.title("💰 Thưởng Tăng trưởng 4 Ngành hàng Chọn - BHX")
 
 # === Đọc dữ liệu ===
-dthumodel = pd.read_excel("dthumodel.xlsx")
+dthumodel = pd.read_excel("dthu.xlsx")
 mapping_st = pd.read_excel("mapping_st.xlsx")
 mapping_4nh = pd.read_excel("mapping_4NH.xlsx")
 target_4nh = pd.read_excel("target4NH.xlsx")
