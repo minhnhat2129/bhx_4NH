@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 
-st.set_page_config(page_title="📈 Tăng trưởng 4NH - BHX", layout="wide")
+st.set_page_config(page_title="💰 Thưởng 4NH - BHX", layout="wide")
 st.title("💰 Thưởng Tăng trưởng 4 Ngành hàng Chọn - BHX")
 
 # === Đọc dữ liệu ===
