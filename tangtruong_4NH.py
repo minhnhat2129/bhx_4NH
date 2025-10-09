@@ -2,8 +2,11 @@ import streamlit as st
 import pandas as pd
 import datetime
 
-st.set_page_config(page_title="💰 Thưởng 4NH - BHX", layout="wide")
+
+today = datetime.datetime.now().day
+st.set_page_config(page_title="💰Thưởng 4NH - BHX", layout="wide")
 st.title("💰 Thưởng Tăng trưởng 4 Ngành hàng Chọn - BHX")
+st.text(f"(Dữ liệu cập nhật đến ngày {today-1}/10)")
 
 # === Đọc dữ liệu ===
 dthumodel = pd.read_excel("dthu.xlsx")
@@ -54,7 +57,7 @@ if "Doanh thu" in merged.columns:
     )
 
     # === Tính Doanh thu dự kiến ===
-    today = datetime.datetime.now().day
+    
     tong["Doanh thu dự kiến"] = tong["Doanh thu"] / max(today - 1, 1) * 31
 
     # === Merge thêm Target và % chia sẻ từ target_4nh ===
@@ -97,7 +100,11 @@ if "Doanh thu" in merged.columns:
     # === Selectbox chọn siêu thị ===
     st.subheader("🛒 Chọn siêu thị để xem chi tiết")
     list_st = ["Tất cả"] + sorted(tong["tenst"].dropna().unique().tolist())
-    selected_st = st.selectbox("Chọn siêu thị:", list_st, index=0)
+    selected_st = st.selectbox(
+        f"Chọn siêu thị:",
+        list_st,
+        index=0
+    )
 
     if selected_st != "Tất cả":
         tong = tong[tong["tenst"] == selected_st]
